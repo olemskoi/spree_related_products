@@ -1,4 +1,4 @@
-Product.class_eval do
+Taxon.class_eval do
   has_many :relations, :as => :relatable
 
   def self.relation_types
@@ -10,8 +10,8 @@ Product.class_eval do
     begin
       relation_type =  self.class.relation_types.detect { |rt| rt.name.downcase.gsub(" ", "_").pluralize == method.to_s.downcase }
     rescue ActiveRecord::StatementInvalid => error
-      # This exception is throw if the relation_types table does not exist. 
-      # And this method is getting invoked during the execution of a migration 
+      # This exception is throw if the relation_types table does not exist.
+      # And this method is getting invoked during the execution of a migration
       # from another extension when both are used in a project.
       relation_type = nil
     end

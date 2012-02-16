@@ -1,0 +1,11 @@
+<%= render :partial => 'admin/shared/taxon_tabs', :locals => {:current => "Taxon Details"} %>
+
+<h1><%== t(:taxon_edit) + " &ldquo;#{@taxon.name}&rdquo;" %></h1>
+
+<%= form_for [:admin, @taxonomy, @taxon], :html => { :method => :put, :multipart => true} do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+
+  <p class="form-buttons" data-hook="buttons">
+    <%= button t(:update) %> <%= t(:or) %> <%= link_to t(:cancel), edit_admin_taxonomy_url(@taxonomy) %>
+  </p>
+<% end %>

@@ -1,8 +1,3 @@
-Deface::Override.new(:virtual_path => "admin/shared/_product_tabs",
-                     :name => "addd_related_products_tab",
-                     :insert_bottom => "[data-hook='admin_product_tabs']",
-                     :partial => "admin/products/related_products",
-                     :disabled => false)
 
 Deface::Override.new(:virtual_path => "admin/configurations/index",
                      :name => "add_configuration_line",

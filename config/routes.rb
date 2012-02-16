@@ -8,6 +8,13 @@ Rails.application.routes.draw do
       resources :relations
     end
 
+    resources :taxonomies do
+      resources :taxons do
+        get :related, :on => :member
+        resources :relations
+      end
+    end
+
   end
 
 end

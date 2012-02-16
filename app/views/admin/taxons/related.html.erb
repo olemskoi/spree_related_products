@@ -1,7 +1,7 @@
-<%= render :partial => 'admin/shared/product_sub_menu' %>
 
-<%= render :partial => 'admin/shared/product_tabs', :locals => {:current => "Related Products"} %>
+<%= render :partial => 'admin/shared/taxon_tabs', :locals => {:current => "Related Products"} %>
 
+<h1><%== t(:taxon_edit) + " &ldquo;#{@taxon.name}&rdquo;" %></h1>
 
 <%= csrf_meta_tag %>
 
@@ -26,7 +26,7 @@
       </div>
       <div style="float: left; width: 15%; padding-top: 17px;">
         <%= link_to text_for_button_link(t("add"), :icon => 'add'),
-            admin_product_relations_url(@product),
+            admin_taxonomy_taxon_relations_url(@taxon.taxonomy, @taxon),
             {:id => "add_related_product", :class => 'button', 'data-update' => 'products-table-wrapper'} %>
 
       </div>
@@ -35,7 +35,7 @@
   </div>
 
   <div id="products-table-wrapper">
-    <%= render :partial => "related_products_table", :locals => {:product => @product} %>
+    <%= render :partial => "related_products_table", :locals => {:taxon => @taxon} %>
   </div>
 
   <%= content_for :head do %>

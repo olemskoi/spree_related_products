@@ -5,7 +5,7 @@ class Admin::RelationsController < Admin::BaseController
 
   def create
     @relation = Relation.new(params[:relation])
-    @relation.relatable = @product
+    @relation.relatable = @taxon
     @relation.related_to = Variant.find(params[:relation][:related_to_id]).product
     @relation.save
 
@@ -22,7 +22,7 @@ class Admin::RelationsController < Admin::BaseController
   private
 
     def load_data
-      @product = Product.find_by_permalink(params[:product_id])
+      @taxon = Taxon.find(params[:taxon_id])
     end
 
 end
