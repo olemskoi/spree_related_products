@@ -6,9 +6,8 @@ class Admin::RelationsController < Admin::BaseController
   def create
     @relation = Relation.new(params[:relation])
     @relation.relatable = @taxon
-    @relation.related_to = Variant.find(params[:relation][:related_to_id]).product
+    @relation.related_to = Taxon.find(params[:relation][:related_to_id])
     @relation.save
-
     respond_with(@relation)
   end
 

@@ -1,2 +1,4 @@
 ru:
   taxon_details: 'Свойства таксона'
+  add_related_taxons: 'Добавить таксон'
+  related_taxons: 'Связанные таксоны'

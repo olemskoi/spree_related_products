@@ -2,7 +2,6 @@
   <thead>
     <tr>
       <th><%= t('name') %></th>
-      <th><%= t('discount_amount') %></th>
       <th><%= t('type') %></th>
       <th></th>
     </tr>
@@ -11,10 +10,9 @@
     <% taxon.relations.each do |relation| %>
       <tr id="<%= dom_id relation %>">
         <td><%= relation.related_to.name %></td>
-        <td><%= relation.discount_amount != 0 ? number_to_currency(relation.discount_amount) : "-" %></td>
         <td><%= relation.relation_type.name %></td>
         <td width="70px">
-          <%= link_to_delete relation, {:url => admin_taxonomy_taxon_relation_url(relation.relatable.taxonomy, relation.relatable, relation)} %>
+          <%= link_to_delete relation, { :url => admin_taxonomy_taxon_relation_url(relation.relatable.taxonomy, relation.relatable, relation) } %>
         </td>
       </tr>
     <% end %>
