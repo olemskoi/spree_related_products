@@ -1,4 +1,6 @@
+
 <% content_for :sidebar do %>
+
   <h3><%= @taxon.name %></h3>
   <br class="clear" />
 
@@ -6,9 +8,10 @@
     <li<%== ' class="active"' if current == 'Taxon Details' %>>
       <%= link_to t(:taxon_details), edit_admin_taxonomy_taxon_url(@taxon.taxonomy, @taxon) %>
     </li>
-    <li<%== ' class="active"' if current == 'Related Taxons' %>>
-      <%= link_to t(:related_taxons), related_admin_taxonomy_taxon_url(@taxon.taxonomy, @taxon) %>
+    <li<%== ' class="active"' if current == 'Related Products' %>>
+      <%= link_to t(:related_products), related_admin_taxonomy_taxon_url(@taxon.taxonomy, @taxon) %>
     </li>
   </ul>
   <br class="clear" />
+
 <% end %>
