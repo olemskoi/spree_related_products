@@ -1,5 +1,6 @@
 Taxon.class_eval do
-  has_many :relations, :as => :relatable
+  has_many :relations, :as => :relatable, :dependent => :delete_all
+  has_many :related_tos, :as => :related_to, :class_name => "Relation", :dependent => :delete_all
 
   def self.relation_types
     RelationType.find_all_by_applies_to(self.to_s, :order => :name)
